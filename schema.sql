@@ -3,7 +3,7 @@ USE my_portfolio;
 
 CREATE TABLE languages (
     id integer PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(100) NOT NULL,
+    name VARCHAR(100) UNIQUE NOT NULL,
     photo_url TEXT,
     display_order INT  
 );

@@ -5,6 +5,7 @@ const app = express();
 
 app.get("/languages", async (_, res) => {
   const languages = await getLanguages();
+  res.header("Access-Control-Allow-Origin", "*");
   res.json(languages);
 });
 
