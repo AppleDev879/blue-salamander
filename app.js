@@ -11,7 +11,9 @@ app.get("/", async function (_, res) {
 
 app.get("/languages", async (_, res) => {
   const languages = await getLanguages();
-  res.header("Access-Control-Allow-Origin", "*");
+  if (process.env.ENVIRONMENT || "" == "dev") {
+    res.header("Access-Control-Allow-Origin", "*");
+  }
   res.json(languages);
 });
 
@@ -26,5 +28,6 @@ app.get("/project_languages", async (_, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Server listening on port ${port}`);
+  console.log(`Server listening on port ${port}
+  `);
 });
