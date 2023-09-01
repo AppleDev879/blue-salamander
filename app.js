@@ -3,6 +3,12 @@ import { getLanguages, getProjects, getProjectLanguages } from "./database.js";
 
 const app = express();
 
+const port = process.env.API_PORT || 8080;
+
+app.get("/", async function (_, res) {
+  res.send("API server is working");
+});
+
 app.get("/languages", async (_, res) => {
   const languages = await getLanguages();
   res.header("Access-Control-Allow-Origin", "*");
@@ -19,6 +25,6 @@ app.get("/project_languages", async (_, res) => {
   res.json(projectLanguages);
 });
 
-app.listen(8080, () => {
-  console.log("Server listening on port 8080");
+app.listen(port, () => {
+  console.log(`Server listening on port ${port}`);
 });
