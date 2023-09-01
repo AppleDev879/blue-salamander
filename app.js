@@ -1,9 +1,16 @@
 import express from "express";
 import { getLanguages, getProjects, getProjectLanguages } from "./database.js";
-import "dotenv/config";
+import "dotenv";
 const app = express();
 
 const port = process.env.API_PORT || 8080;
+const result = dotenv.config();
+
+if (result.error) {
+  throw result.error;
+}
+
+console.log(result.parsed);
 
 app.get("/", async function (_, res) {
   res.send("API server is working");
