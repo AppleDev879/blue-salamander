@@ -13,15 +13,20 @@ if (result.error) {
 
 const port = process.env.API_PORT || 8080;
 
+app.use(req, res, next) {
+  if (process.env.ENVIRONMENT == "dev") {
+    res.header("Access-Control-Allow-Origin", "*");
+  } else {
+      res.header("Access-Control-Allow-Origin", "https://abarrett.io");
+  }
+}
+
 app.get("/", async function (_, res) {
   res.send("API server is working");
 });
 
 app.get("/languages", async (_, res) => {
   const languages = await getLanguages();
-  if (process.env.ENVIRONMENT || "" == "dev") {
-    res.header("Access-Control-Allow-Origin", "*");
-  }
   res.json(languages);
 });
 
