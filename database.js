@@ -1,4 +1,12 @@
 import mysql from "mysql2";
+import path from "path";
+import dotenv from "dotenv";
+
+const envPath = path.join(import.meta.url, "../.env").split(":")[1];
+const result = dotenv.config({ path: envPath });
+if (result.error) {
+  throw result.error;
+}
 
 const pool = mysql
   .createPool({

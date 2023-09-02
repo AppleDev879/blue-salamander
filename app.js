@@ -5,15 +5,13 @@ import path from "path";
 
 const app = express();
 
-const port = process.env.API_PORT || 8080;
-
 const envPath = path.join(import.meta.url, "../.env").split(":")[1];
 const result = dotenv.config({ path: envPath });
 if (result.error) {
   throw result.error;
 }
 
-console.log(result.parsed);
+const port = process.env.API_PORT || 8080;
 
 app.get("/", async function (_, res) {
   res.send("API server is working");
