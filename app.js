@@ -13,14 +13,14 @@ if (result.error) {
 
 const port = process.env.API_PORT || 8080;
 
-app.use(req, res, next) {
+app.use(function (_, res, next) {
   if (process.env.ENVIRONMENT == "dev") {
     res.header("Access-Control-Allow-Origin", "*");
   } else {
     res.header("Access-Control-Allow-Origin", "https://abarrett.io");
   }
   next();
-}
+});
 
 app.get("/", async function (_, res) {
   res.send("API server is working");
