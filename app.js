@@ -17,8 +17,9 @@ app.use(req, res, next) {
   if (process.env.ENVIRONMENT == "dev") {
     res.header("Access-Control-Allow-Origin", "*");
   } else {
-      res.header("Access-Control-Allow-Origin", "https://abarrett.io");
+    res.header("Access-Control-Allow-Origin", "https://abarrett.io");
   }
+  next();
 }
 
 app.get("/", async function (_, res) {
