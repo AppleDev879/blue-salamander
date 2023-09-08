@@ -16,5 +16,11 @@ pipeline {
                 sh 'npm install'
             }
         }
+        stage('Deploy') {
+            steps {
+                echo 'Restarting app'
+                sh 'pm2 restart app'
+            }
+        }
     }
 }
