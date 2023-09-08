@@ -19,7 +19,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Restarting app'
-                sh 'npm run start'
+                sh 'sudo pm2 start app.js'
             }
         }
     }

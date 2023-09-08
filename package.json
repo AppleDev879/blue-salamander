@@ -5,8 +5,7 @@
   "main": "database.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "npx nodemon app.js",
-    "start": "pm2 restart app"
+    "dev": "npx nodemon app.js"
   },
   "keywords": [],
   "author": "",
