@@ -5,7 +5,7 @@ pipeline {
     agent {
         docker {
             image 'node'
-            args '-u sammy'
+            args '-u root'
         }
     }
 
@@ -19,7 +19,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Restarting app'
-                sh 'sudo pm2 start app.js'
+                sh 'pm2 restart app'
             }
         }
     }
