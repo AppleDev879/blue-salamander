@@ -5,7 +5,7 @@ pipeline {
     agent any
 
     environment {
-        PM2_HOME = '/usr/local/bin/pm2'
+        PM2_HOME = '/home/sammy/.pm2'
     }
 
     stages {
