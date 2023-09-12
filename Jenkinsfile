@@ -4,10 +4,6 @@ pipeline {
 
     agent any
 
-    tools {
-        nodejs "node"
-    }
-
     environment {
         PM2_HOME = '/usr/local/bin/pm2'
     }
