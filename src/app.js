@@ -3,7 +3,7 @@ import { getLanguages, getProjects, getProjectLanguages } from "./database.js";
 
 const app = express();
 
-const port = process.env.API_PORT || 8080;
+const port = process.env.API_PORT || 8082;
 
 app.use(function (_, res, next) {
   if (process.env.ENVIRONMENT == "dev") {
