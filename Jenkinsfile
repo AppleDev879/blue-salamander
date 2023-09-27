@@ -25,10 +25,10 @@ pipeline {
             sh "ssh ${remoteServer} mkdir -p ${deployDir}"
             
             // Copy the built application to the deployment directory
-            sh "rsync -avz -e 'ssh' ${WORKSPACE}/build/ ${remoteServer}:${deployDir}/"
+            // sh "rsync -avz -e 'ssh' ${WORKSPACE}/build/ ${remoteServer}:${deployDir}/"
             
             // Restart your Node.js application (e.g., using pm2, systemd, or other process manager)
-            sh "ssh ${remoteServer} 'cd ${deployDir} && npm install && pm2 restart app'"
+            sh "ssh ${remoteServer} 'cd ${deployDir} && git pull && npm install && pm2 restart app'"
         }
     }
 }
