@@ -31,7 +31,7 @@ async function getProjects() {
   console.log(process.env.MYSQL_DATABASE);
   console.log(process.env.MYSQL_PORT);
   const [rows] = await pool.query(`
-select projects.id, projects.title, projects.content, GROUP_CONCAT(languages.name SEPARATOR ', ') AS languages from projects left outer join project_langauge_relation on projects.id = project_langauge_relation.project_id left outer join languages on languages.id
+select projects.id, projects.title, projects.content, projects.link, GROUP_CONCAT(languages.name SEPARATOR ', ') AS languages from projects left outer join project_langauge_relation on projects.id = project_langauge_relation.project_id left outer join languages on languages.id
 = project_langauge_relation.language_id GROUP BY projects.id;
 `);
   return rows;
